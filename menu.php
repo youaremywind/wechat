@@ -1,9 +1,10 @@
 <?php
-//https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login 获取
+//AppID和AppSecret可在开发模式中获得（需要已经成为开发者，且帐号没有异常状态）
 $appid = "";
 $appsecret = "";
 $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$appsecret";
-
+//正常情况下返回{"access_token":"ACCESS_TOKEN","expires_in":7200}
+//错误时返回{"errcode":40013,"errmsg":"invalid appid"}
 $output = https_request($url);
 $jsoninfo = json_decode($output, true);
 
